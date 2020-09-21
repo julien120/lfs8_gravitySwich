@@ -1,10 +1,13 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
+using UnityEngine.SceneManagement;
 
 public class PlayerController : MonoBehaviour
 {
     public bool scoreStop;
+    public GameObject gameOverText;
     
     // Start is called before the first frame update
     void Start()
@@ -22,6 +25,25 @@ public class PlayerController : MonoBehaviour
             GetComponent<Rigidbody>().AddForce(new Vector3(0, 100f,0));
         }
 
+
+
+        if (scoreStop == true)
+        {
+            Debug.Log("ロード条件分岐");
+            if (Input.GetKey(KeyCode.R))
+            {
+                Debug.Log("リロードする");
+                //Rを押したらゲームをリロードする
+                SceneManager.LoadScene("GameMode");
+                scoreStop = false;
+
+
+            }
+        }
+
+
+
+
     }
 
     private void OnTriggerEnter(Collider coll)
@@ -30,7 +52,10 @@ public class PlayerController : MonoBehaviour
         {
             Debug.Log("当たった");
             scoreStop = true;
+            gameOverText.SetActive(true);
+
         }
+
     }
 
 }
