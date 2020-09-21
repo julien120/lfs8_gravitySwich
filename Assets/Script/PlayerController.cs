@@ -8,6 +8,7 @@ public class PlayerController : MonoBehaviour
 {
     public bool scoreStop;
     public GameObject gameOverText;
+    public Text gameOverScoreText;
 
 
     ScoreController scoreController;
@@ -23,12 +24,16 @@ public class PlayerController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        if(scoreStop == false) { 
         gameObject.transform.position += new Vector3(0.1f, 0, 0);
 
-        if (Input.GetMouseButtonDown(0))
-        {
-            GetComponent<Rigidbody>().AddForce(new Vector3(0, 200f,0));
+          if (Input.GetMouseButtonDown(0))
+          {
+           GetComponent<Rigidbody>().AddForce(new Vector3(0, 200f, 0));
+           }
         }
+
+        
 
 
 
@@ -46,9 +51,6 @@ public class PlayerController : MonoBehaviour
             }
         }
 
-
-
-
     }
 
     private void OnTriggerEnter(Collider coll)
@@ -58,6 +60,8 @@ public class PlayerController : MonoBehaviour
             Debug.Log("当たった");
             scoreStop = true;
             gameOverText.SetActive(true);
+            gameOverScoreText.text = "High Score : " + scoreController.scoreText;
+           // gameOverScoreText; Text型をtrueにする構文
 
         }
 
@@ -66,6 +70,8 @@ public class PlayerController : MonoBehaviour
         {
             scoreController.scoreCount += 300;
             scoreController.scoreText.text = scoreController.scoreCount.ToString("f0");
+            Destroy(coll.gameObject);
+
         }
 
 
