@@ -8,11 +8,16 @@ public class PlayerController : MonoBehaviour
 {
     public bool scoreStop;
     public GameObject gameOverText;
+
+
+    ScoreController scoreController;
+    public GameObject ScoreControllerObject;
+   
     
     // Start is called before the first frame update
     void Start()
     {
-        
+        scoreController = ScoreControllerObject.GetComponent<ScoreController>();
     }
 
     // Update is called once per frame
@@ -22,7 +27,7 @@ public class PlayerController : MonoBehaviour
 
         if (Input.GetMouseButtonDown(0))
         {
-            GetComponent<Rigidbody>().AddForce(new Vector3(0, 100f,0));
+            GetComponent<Rigidbody>().AddForce(new Vector3(0, 200f,0));
         }
 
 
@@ -55,6 +60,15 @@ public class PlayerController : MonoBehaviour
             gameOverText.SetActive(true);
 
         }
+
+
+        if (coll.gameObject.CompareTag("Item"))
+        {
+            scoreController.scoreCount += 300;
+            scoreController.scoreText.text = scoreController.scoreCount.ToString("f0");
+        }
+
+
 
     }
 

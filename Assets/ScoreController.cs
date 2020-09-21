@@ -6,7 +6,7 @@ using UnityEngine.UI;
 public class ScoreController : MonoBehaviour
 {
     public Text scoreText;
-    float scoreCount;
+    public float scoreCount;
 
     PlayerController playerController;
     public GameObject PlayerControllerObject;
