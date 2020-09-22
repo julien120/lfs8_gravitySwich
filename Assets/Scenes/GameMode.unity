@@ -841,7 +841,7 @@ MonoBehaviour:
     m_TypeName: UnityEngine.UI.MaskableGraphic+CullStateChangedEvent, UnityEngine.UI,
       Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
   m_FontData:
-    m_Font: {fileID: 10102, guid: 0000000000000000e000000000000000, type: 0}
+    m_Font: {fileID: 12800000, guid: af5ca9bc255504fb3b87fc1d195e6f41, type: 3}
     m_FontSize: 50
     m_FontStyle: 0
     m_BestFit: 0
@@ -853,7 +853,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: Enter "R"
+  m_Text: "R\u3067\u30EA\u30ED\u30FC\u30C9"
 --- !u!222 &868335907
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -921,7 +921,7 @@ MonoBehaviour:
     m_TypeName: UnityEngine.UI.MaskableGraphic+CullStateChangedEvent, UnityEngine.UI,
       Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
   m_FontData:
-    m_Font: {fileID: 10102, guid: 0000000000000000e000000000000000, type: 0}
+    m_Font: {fileID: 12800000, guid: af5ca9bc255504fb3b87fc1d195e6f41, type: 3}
     m_FontSize: 30
     m_FontStyle: 0
     m_BestFit: 0
@@ -1034,7 +1034,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 970660338}
   m_LocalRotation: {x: 0.13002956, y: 0.08641016, z: 0.011376116, w: 0.9876721}
-  m_LocalPosition: {x: 3.0572953, y: 2.2846737, z: -9.458403}
+  m_LocalPosition: {x: 5.34, y: 2.39, z: -10.85}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 444652974}
@@ -1622,7 +1622,7 @@ MonoBehaviour:
     m_TypeName: UnityEngine.UI.MaskableGraphic+CullStateChangedEvent, UnityEngine.UI,
       Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
   m_FontData:
-    m_Font: {fileID: 10102, guid: 0000000000000000e000000000000000, type: 0}
+    m_Font: {fileID: 12800000, guid: af5ca9bc255504fb3b87fc1d195e6f41, type: 3}
     m_FontSize: 40
     m_FontStyle: 0
     m_BestFit: 0
