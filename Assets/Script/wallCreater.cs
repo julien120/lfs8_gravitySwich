@@ -4,11 +4,12 @@ using UnityEngine;
 
 public class wallCreater : MonoBehaviour
 {
-    //public GameObject wall;
     float timer = 0;
-    float interval = 4.5f;
+    float interval=1;
+
     public GameObject[] walls = new GameObject[3];
     int randomCount;
+    float width;
 
     bool repeatcheck;
 
@@ -29,20 +30,29 @@ public class wallCreater : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
+        timer +=Time.deltaTime;
+     
 
-        if(repeatcheck == false) { 
-        randomCount = Random.Range(0, 2);
-        for (int i = 0; i < 3; i++)
+
+
+        if (repeatcheck == false&&timer>=interval) { 
+        
+        for (int i = 0; i < 1; i++)
         {
-            Instantiate(walls[randomCount], transform.position * Time.deltaTime, transform.rotation);
-            Instantiate(walls[randomCount], transform.position * Time.deltaTime, transform.rotation);
+            randomCount = Random.Range(0, 3);
+            Instantiate(walls[randomCount], new Vector3(playerController.gameObject.transform.position.x+gameObject.transform.position.x, 0, -0.8702888f), Quaternion.identity);
+
+                //width = transform.position.x + walls[0].GetComponent<RectTransform>().sizeDelta.x;
+
+                //widthをinstantiateに入れるとエラー起きる
+                //Instantiate(walls[randomCount], width, transform.rotation);
+                timer = 0;
 
         }
         
         }
 
-        if(playerController.scoreStop == false)
+        if(playerController.scoreStop == true)
         {
             repeatcheck = true;
             Debug.Log("wall生成止まるよ");
@@ -52,13 +62,4 @@ public class wallCreater : MonoBehaviour
 
     }
 
-
-    //timer += Time.deltaTime;
-    //    if(timer >= interval)
-    //    {
-
-    //        //Instantiate(何を(GameObject型変数)、どこに、角度は);
-    //        Instantiate(wall, transform.position* Time.deltaTime, transform.rotation);
-    //timer = 0;
-    //    }
 }
