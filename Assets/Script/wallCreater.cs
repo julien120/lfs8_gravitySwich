@@ -4,14 +4,15 @@ using UnityEngine;
 
 public class wallCreater : MonoBehaviour
 {
-    float timer = 0;
-    float interval=1;
+   // float timer = 0;
+//    float interval=1;
 
-    public GameObject[] walls = new GameObject[3];
+    public GameObject[] walls = new GameObject[2];
     int randomCount;
     float width;
 
     bool repeatcheck;
+    public GameObject emptyBox;
 
     public GameObject player;
     PlayerController playerController;
@@ -30,25 +31,26 @@ public class wallCreater : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        timer +=Time.deltaTime;
-     
+//        timer +=Time.deltaTime;
 
 
 
-        if (repeatcheck == false&&timer>=interval) { 
+        //playerが一定距離を進むごとにwallが生成されるようにしたい
+        //playerController.transform.position.x %Time.frameCount==0ではない
+        //player.x %60==0
+        if (repeatcheck == false&& Time.frameCount % 50 == 0) { 
         
-        for (int i = 0; i < 1; i++)
-        {
-            randomCount = Random.Range(0, 3);
-            Instantiate(walls[randomCount], new Vector3(playerController.gameObject.transform.position.x+gameObject.transform.position.x, 0, -0.8702888f), Quaternion.identity);
+        //for (int i = 0; i < 4; i++)
+        //{
+            randomCount = Random.Range(0, 2);
+            //new Vector3(playerController.gameObject.transform.position.x + gameObject.transform.position.x, 0, 0)
+            Instantiate(walls[randomCount], new Vector3(emptyBox.transform.position.x, 0, 0), Quaternion.identity);
 
-                //width = transform.position.x + walls[0].GetComponent<RectTransform>().sizeDelta.x;
 
-                //widthをinstantiateに入れるとエラー起きる
                 //Instantiate(walls[randomCount], width, transform.rotation);
-                timer = 0;
+               // timer = 0;
 
-        }
+        //}
         
         }
 
