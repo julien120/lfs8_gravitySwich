@@ -8,11 +8,16 @@ public class testGenerator : MonoBehaviour
     public GameObject[] tests = new GameObject[2];
     int randomCount;
     float width;
+    int count;
 
     public GameObject dist;
 
     bool repeatcheck;
-    
+
+    public GameObject item;
+
+    int itemChance;
+
 
     public GameObject player;
     PlayerController playerController;
@@ -20,18 +25,12 @@ public class testGenerator : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        playerController = player.GetComponent<PlayerController>();
-        if (repeatcheck == false)
+        //playerController = player.GetComponent<PlayerController>();
+        if (PlayerController.scoreStop == false)
         {
             Invoke("createWall", 0.3f);
            
 
-        }
-
-        if (playerController.scoreStop == true)
-        {
-            repeatcheck = true;
-            Debug.Log("wall生成止まるよ");
         }
 
 
@@ -48,6 +47,14 @@ public class testGenerator : MonoBehaviour
     void createWall()
     {
         randomCount = Random.Range(0, 2);
-        Instantiate(tests[randomCount], new Vector3(dist.transform.position.x, Random.Range(-3, 1), -0.9f), Quaternion.identity);
+        count = Random.Range(-3, 1);
+
+        Instantiate(tests[randomCount], new Vector3(dist.transform.position.x, count, -0.9f), Quaternion.identity);
+        count += Random.Range(2, 5);
+
+        if (itemChance <= 10)
+        {
+            Instantiate(item, new Vector3(dist.transform.position.x, count, -0.05f), Quaternion.identity);
+        }
     }
 }

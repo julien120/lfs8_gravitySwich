@@ -4,8 +4,7 @@ using UnityEngine;
 
 public class wallCreater : MonoBehaviour
 {
-   // float timer = 0;
-//    float interval=1;
+
 
     public GameObject[] walls = new GameObject[2];
     int randomCount;
@@ -24,24 +23,16 @@ public class wallCreater : MonoBehaviour
     {
         playerController = player.GetComponent<PlayerController>();
 
-        //Destroy(何を,何秒後に);
-        //Destroy(gameObject, 10);
+       
     }
 
     // Update is called once per frame
     void Update()
     {
-//        timer +=Time.deltaTime;
 
-
-
-        //playerが一定距離を進むごとにwallが生成されるようにしたい
-        //playerController.transform.position.x %Time.frameCount==0ではない
-        //player.x %60==0
         if (repeatcheck == false&& Time.frameCount % 180 == 0) { 
         
-        //for (int i = 0; i < 4; i++)
-        //{
+ 
             randomCount = Random.Range(0, 2);
             //new Vector3(playerController.gameObject.transform.position.x + gameObject.transform.position.x, 0, 0)
             Instantiate(walls[randomCount], new Vector3(emptyBox.transform.position.x, 0, 0), Quaternion.identity);
@@ -54,7 +45,7 @@ public class wallCreater : MonoBehaviour
         
         }
 
-        if(playerController.scoreStop == true)
+        if(PlayerController.scoreStop == true)
         {
             repeatcheck = true;
             Debug.Log("wall生成止まるよ");

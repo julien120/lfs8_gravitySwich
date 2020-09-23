@@ -6,11 +6,14 @@ using UnityEngine.SceneManagement;
 
 public class PlayerController : MonoBehaviour
 {
-    public bool scoreStop;
+    public static PlayerController playerController;
+    public static bool scoreStop;
     public GameObject gameOverText;
     public Text gameOverScoreText;
     public float speed = 0.04f;
     public GameObject gameOverScoreTexObject;
+
+    public GameObject destroyChecker;
 
 
     ScoreController scoreController;
@@ -35,9 +38,6 @@ public class PlayerController : MonoBehaviour
            }
         }
 
-        
-
-
 
         if (scoreStop == true)
         {
@@ -49,7 +49,6 @@ public class PlayerController : MonoBehaviour
                 SceneManager.LoadScene("GameMode");
                 scoreStop = false;
 
-
             }
         }
 
@@ -57,14 +56,14 @@ public class PlayerController : MonoBehaviour
 
     private void OnTriggerEnter(Collider coll)
     {
-        if(coll.gameObject.CompareTag("wallChecker"))
+        if (coll.gameObject.CompareTag("wallChecker"))
         {
             Debug.Log("当たった");
             scoreStop = true;
             gameOverText.SetActive(true);
             gameOverScoreTexObject.SetActive(true);
             gameOverScoreText.text = "High Score : " + scoreController.scoreCount.ToString("f0");
-            // gameOverScoreText; Text型をtrueにする構文
+
 
         }
 
@@ -80,5 +79,6 @@ public class PlayerController : MonoBehaviour
 
 
     }
+
 
 }

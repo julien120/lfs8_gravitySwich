@@ -24,7 +24,7 @@ public class ScoreController : MonoBehaviour
         //Playerの座標をScoreに代入しているが、Scoreを時間にし、ゲームオーバーでそのまま泊まる方がいいかも
         //scoreCount += playerController.gameObject.transform.position.x;
 
-        if(playerController.scoreStop == false) { 
+        if(PlayerController.scoreStop == false) { 
 
         scoreCount += Time.deltaTime;
         scoreText.text = scoreCount.ToString("f0");
