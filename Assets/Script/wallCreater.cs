@@ -25,7 +25,7 @@ public class wallCreater : MonoBehaviour
         playerController = player.GetComponent<PlayerController>();
 
         //Destroy(何を,何秒後に);
-        Destroy(gameObject, 10);
+        //Destroy(gameObject, 10);
     }
 
     // Update is called once per frame

@@ -10,6 +10,7 @@ public class PlayerController : MonoBehaviour
     public GameObject gameOverText;
     public Text gameOverScoreText;
     float speed = 5;
+    public GameObject gameOverScoreTexObject;
 
 
     ScoreController scoreController;
@@ -61,8 +62,9 @@ public class PlayerController : MonoBehaviour
             Debug.Log("当たった");
             scoreStop = true;
             gameOverText.SetActive(true);
-            gameOverScoreText.text = "High Score : " + scoreController.scoreText;
-           // gameOverScoreText; Text型をtrueにする構文
+            gameOverScoreTexObject.SetActive(true);
+            gameOverScoreText.text = "High Score : " + scoreController.scoreCount.ToString("f0");
+            // gameOverScoreText; Text型をtrueにする構文
 
         }
 
