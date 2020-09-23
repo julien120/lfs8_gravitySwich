@@ -38,7 +38,7 @@ public class wallCreater : MonoBehaviour
         //playerが一定距離を進むごとにwallが生成されるようにしたい
         //playerController.transform.position.x %Time.frameCount==0ではない
         //player.x %60==0
-        if (repeatcheck == false&& Time.frameCount % 50 == 0) { 
+        if (repeatcheck == false&& Time.frameCount % 180 == 0) { 
         
         //for (int i = 0; i < 4; i++)
         //{

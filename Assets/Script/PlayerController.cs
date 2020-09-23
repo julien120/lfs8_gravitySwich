@@ -9,7 +9,7 @@ public class PlayerController : MonoBehaviour
     public bool scoreStop;
     public GameObject gameOverText;
     public Text gameOverScoreText;
-    float speed = 5;
+    public float speed = 0.04f;
     public GameObject gameOverScoreTexObject;
 
 
@@ -27,7 +27,7 @@ public class PlayerController : MonoBehaviour
     void Update()
     {
         if(scoreStop == false) { 
-        gameObject.transform.position += new Vector3(speed*Time.deltaTime, 0, 0);
+        gameObject.transform.position += new Vector3(speed, 0, 0);
 
           if (Input.GetMouseButtonDown(0))
           {

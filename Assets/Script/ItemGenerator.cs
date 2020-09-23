@@ -8,8 +8,10 @@ public class ItemGenerator : MonoBehaviour
     //生成:instantiate(item,座標はplayerController.emptyBox.x,0);
     //cs型変数 = GameObject型変数.GetComponent<cs名>();
 
-    wallCreater wallcs;
-    public GameObject wall;
+    public GameObject player;
+    PlayerController playerController;
+
+    public GameObject emptyBox;
 
     float timer;
     float interval =2;
@@ -21,7 +23,7 @@ public class ItemGenerator : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        wallcs = wall.GetComponent<wallCreater>();
+        playerController = player.GetComponent<PlayerController>();
     }
 
     // Update is called once per frame
@@ -32,8 +34,8 @@ public class ItemGenerator : MonoBehaviour
         if (timer >= interval) {
         itemChance = Random.Range(1, 100);
 
-            if (itemChance <= 20) { 
-                 Instantiate(item, wallcs.emptyBox.transform.position, Quaternion.identity);
+            if (itemChance <= 90) { 
+                 Instantiate(item, emptyBox.transform.position, Quaternion.identity);
             }
         timer = 0;
         }
